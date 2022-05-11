@@ -10,17 +10,17 @@ class Solution {
          int l = Math.abs(nums[left]);
         if(r>l)
         {
-          res[index--]=(int)Math.pow(r,2);
+          res[index--]=r*r;
           right--;
         }
         else if (l>r)
         {
-          res[index--]=(int)Math.pow(l,2);;
+          res[index--]=l*l;
           left++;
         }
         else 
         {
-          res[index--]=(int)Math.pow(l,2);
+          res[index--]=l*l;
           left++;
         }
       }
