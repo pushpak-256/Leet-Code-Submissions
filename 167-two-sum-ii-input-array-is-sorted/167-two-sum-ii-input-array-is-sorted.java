@@ -3,19 +3,18 @@ class Solution {
         int left = 0 ;
         int right = a.length-1;
         int [] res = new int [2];
-        
-      while(left<=right)
-      {
-        int sum =a[left]+a[right];
-        if(t==sum)
+        while(left<right)
         {
-          res[0]=1+left;
-          res[1]=1+right;
-          return res;
+           if ((a[left]+a[right])==t) 
+           {
+             res[0]=++left;
+             res[1]=++right;
+             return res;
+           }            
+          else if ((a[left]+a[right])>t){right--;}
+          else{left++;}
+          
         }
-        else if(t>sum) left++;
-        else right--;
-      }
-        return res;
+            return res;
     }
 }
