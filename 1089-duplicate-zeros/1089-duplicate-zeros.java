@@ -15,10 +15,10 @@ class Solution {
             }
 	    	
             else 
-            { ll.add(index++,arr[i]); }
+            { ll.add(index++,arr[i]); } // add non zero as it is in list
 	    	
             arr[i]=ll.get(i);             
-        // we will update our Arrays form 0 , with respect to our Updated list
+        //update our Array at i , with respect to our Updated list 
 	    }   
     }
 }
