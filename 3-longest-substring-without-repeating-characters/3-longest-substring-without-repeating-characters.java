@@ -13,10 +13,7 @@ class Solution {
             right++; //move forward
          }
          else 
-         {
-            set.remove(s.charAt(left));
-            ++left;
-         }
+            set.remove(s.charAt(left++));
        }
        return max;
     }
