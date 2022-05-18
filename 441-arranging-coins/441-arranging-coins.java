@@ -1,11 +1,23 @@
 class Solution {
     public int arrangeCoins(int n) {
-        int level = 0, coin = 1;
-        while (n >= coin) {
-            n -= coin;
-            coin++;
-            level++;
-        }
-        return level;
+    int row=1;
+      while(n>0)
+      {
+        /*
+          $
+          $$
+          for each row , reduce coins by , n-coins,
+          if n-coins < 0 break
+          
+          return row-1; 
+        */
+       if(n-row<0)break;
+       else
+       {
+        n=n-row; 
+        row++;
+       }
+      }
+      return row-1;
     }
 }
