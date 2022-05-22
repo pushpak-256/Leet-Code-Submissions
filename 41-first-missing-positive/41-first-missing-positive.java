@@ -1,21 +1,32 @@
 class Solution {
-    public int firstMissingPositive(int[] nums) {
+     public int firstMissingPositive(int[] nums) {
+	  // nums[]={1,2,3}
        int res =1;
-       int arr[] = new int [nums.length];
-     
-      for(int i =0 ;i< nums.length;i++)
+       
+      for(int i =0 ;i<nums.length;)
       {
-        if(nums[i]<=nums.length && nums[i]>0)
-        arr[nums[i]-1]=nums[i];
+        //to avoid indexOutOfBound 
+        // nums[2]=3,  3<=nums.length && nums[i]=0 , nums[0-1] 
+        //&& increment i , only when nums[i]==i-1;
+
+        if(nums[i]<=nums.length
+           && nums[i]>0 && nums[i]!=i+1 && nums[nums[i]-1]!=nums[i])
+        {
+          int temp = nums[nums[i]-1];
+          nums[nums[i]-1]=nums[i];
+          nums[i]=temp;
+        }
+        else i++;
       }
-      
+	    
      for(int i =0 ;i< nums.length;i++)
       {
-        if(arr[i]!=res)
-        return res;
-       else res++;
+        if(nums[i]!=res)
+         return res;
+        else res+=1;
       }
-      
+       
       return res;
+       
     }
 }
