@@ -9,8 +9,7 @@ class Solution {
         // nums[2]=3,  3<=nums.length && nums[i]=0 , nums[0-1] 
         //&& increment i , only when nums[i]==i-1;
 
-        if(nums[i]<=nums.length
-           && nums[i]>0 && nums[i]!=i+1 && nums[nums[i]-1]!=nums[i])
+        if(nums[i]<=nums.length && nums[i]>0 && nums[nums[i]-1]!=nums[i])
         {
           int temp = nums[nums[i]-1];
           nums[nums[i]-1]=nums[i];
