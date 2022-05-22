@@ -5,8 +5,8 @@ class Solution {
         for (int i =0;i<nums.length;i++)
         {  
             product*=nums[i];      
-            max =Math.max(max,product);
-            if(nums[i]==0){product =1;} 
+            max =Math.max(max,product); 
+            if(nums[i]==0){product =1;}  //if nums[i]= 0 ; prod*=nums[i]=0; Key point
         }
         product =1;
         for (int i =nums.length-1;i>=0;i--)
