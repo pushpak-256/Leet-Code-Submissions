@@ -1,8 +1,9 @@
 # Leet-Code-Submissions
-### My Leetcode Submissions 
-</br>
-
-[leetcode.com/pushpak7070](https://leetcode.com/pushpak7070/)
 
 #### LeetCode Stats
-![Leetcode Stats](https://leetcode.card.workers.dev/?username=pushpak7070&theme=dark)
+<img src="https://leetcode.card.workers.dev/?username=pushpak7070&theme=dark" alt="stats loading....">
+
+<p align="right">
+<a align="right" href="https://leetcode.com/pushpak7070/">leetcode.com/pushpak7070</a>
+</p>
+
