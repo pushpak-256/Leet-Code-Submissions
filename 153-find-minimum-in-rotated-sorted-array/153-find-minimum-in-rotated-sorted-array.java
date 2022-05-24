@@ -8,13 +8,12 @@ class Solution {
       while(low<high)
       {
         int mid = low + (high-low)/2;
-        int curr = nums[mid];
-        //Roatate, and hence low must be in right part
-       if(curr>nums[high])
+        //Roatated, and hence low must be in right part
+       if(nums[mid]>nums[high])
        {
          low=mid+1;
        } 
-       else if (curr<nums[high])
+       else if (nums[mid]<nums[high])
        {
          high=mid;
        }
