@@ -1,5 +1,6 @@
 class Solution {
     public int mySqrt(int num) {
+       if(num<=1)return num;
        //Using long is key here 
         long left = 1;
         long right = num;
