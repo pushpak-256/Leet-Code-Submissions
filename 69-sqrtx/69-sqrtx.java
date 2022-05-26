@@ -15,8 +15,6 @@ class Solution {
             }
             else if (sqr > num)
              right = mid - 1;
-            else
-             left = mid + 1;
         }
         return res;
     }
