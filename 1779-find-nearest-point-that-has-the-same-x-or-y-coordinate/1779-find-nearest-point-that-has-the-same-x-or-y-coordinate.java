@@ -4,9 +4,8 @@ class Solution {
       int res = -1;
       for(int i =0;i<points.length;i++)
       {
-          int j=0;
-          int x1=points[i][j];
-          int y1=points[i][j+1];
+          int x1=points[i][0];
+          int y1=points[i][1];
         
           if( x==x1 || y==y1 )
           {
