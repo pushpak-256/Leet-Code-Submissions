@@ -1,22 +1,23 @@
 class Solution {
-  public char nextGreatestLetter(char[] letters, char target) {
-       if(letters[0]>target || target>letters[letters.length-1])
-         return letters [0];
-        char res = letters[0];
-        int low = 0;
-        int high = letters.length-1;
-   
-    while(low<=high)
-    {
-      int mid=low+(high-low)/2;
-      if(letters[mid]<=target )
-        low = mid+1;
-      else if(letters[mid]>target)
+    public char nextGreatestLetter(char[] letters, char target) {
+      int len = letters.length;  
+      if(letters[len-1]<=target) return letters[0];
+      int low = 0, high =len-1,mid;
+      char res = letters[0];
+      while(low<=high)
       {
-        res=letters[mid];
-        high=mid-1;
+         mid=(low+high)>>>1;
+         char curr = letters[mid];
+         if(target>=curr)
+         {
+           low=mid+1;
+         }
+         else if(target<curr)
+         {
+           res=curr;
+           high=mid-1;
+         }
       }
-    }
-    return res;
+      return res;
     }
 }
