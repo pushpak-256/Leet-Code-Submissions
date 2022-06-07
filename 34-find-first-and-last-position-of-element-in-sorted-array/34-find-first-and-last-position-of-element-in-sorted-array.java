@@ -1,43 +1,39 @@
-public class Solution {
-    public int[] searchRange(int[] arr, int t) {
-        return new int[]{firstIndex(arr,t),lastIndex(arr,t)};
+class Solution {
+    public int[] searchRange(int[] nums, int target) {
+      boolean firstIndex=true;
+     return new int[]
+     {getIndex(nums,target,firstIndex),getIndex(nums,target,!firstIndex)};
     }
-    public int firstIndex(int []arr,int t)
-    {
-      int index =-1;
-      int low = 0;
-      int high=arr.length-1;
-      while(low<=high)
+  
+      public int getIndex(int [] nums, int target,boolean firstIndex)
       {
-        int mid = low +(high-low)/2;
-        int num = arr[mid]; 
-          if(num==t)
+        int low = 0,high=nums.length-1,res=-1,mid;
+      
+          while(low<=high)
           {
-           index =mid;   
-           high=mid-1;//even if we found target, keep searching in left part (firstIndex)
+           mid=(low+high)>>>1;
+             if(nums[mid]>target)
+             {
+               high=mid-1;
+             }      
+             else if(nums[mid]<target)
+             {
+               low=mid+1;
+             }
+             else if(nums[mid]==target)
+             {
+               if(firstIndex)
+               {
+                 res=mid;
+                 high=mid-1;
+               }
+               else 
+               {
+                 res=mid;
+                 low=mid+1;
+               }
+             }
           }
-          else if(num<t) low=mid+1;
-          else high=mid-1;
+          return res;
       }
-      return index;
-    }
-   public int lastIndex(int []arr,int t)
-    {
-      int index =-1;
-      int low = 0;
-      int high=arr.length-1;
-      while(low<=high)
-      {
-        int mid = low +(high-low)/2;
-        int num = arr[mid]; 
-          if(num==t)
-          {
-           index =mid;
-           low=mid+1;//even if we found target, keep searching in righ part (lastIndex)
-          }
-          else if(num>t) high=mid-1;
-          else low=mid+1;
-      }
-      return index;
-    }
 }
