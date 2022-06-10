@@ -1,6 +1,6 @@
 class Solution {
     public char findTheDifference(String s, String t) {
-       char res =0;
+       int res =0; //taking int insted of char 
       for(char c : s.toCharArray())
         {
           res^=c;
@@ -9,6 +9,6 @@ class Solution {
         {
           res^=c;
         }
-      return res;
+      return (char)res;
     }
 }
