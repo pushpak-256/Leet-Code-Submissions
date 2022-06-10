@@ -15,27 +15,16 @@ class Solution {
            {
               if (arr[i + 1] == ')') 
               {
-                sb.append(getDecodedString("("));
+                sb.append("o");
                 ++i;
               } 
              else if (arr[i + 1] == 'a')
              {
-              sb.append(getDecodedString("a"));
+              sb.append("al");
               ++i;
              }
           }
         }
       return sb.toString();
-    }
-
-    public String getDecodedString(String choice) {
-        switch (choice)
-        {
-            case "a":
-                return "al";
-            case "(":
-                return "o";
-        }
-        return null;
     }
 }
