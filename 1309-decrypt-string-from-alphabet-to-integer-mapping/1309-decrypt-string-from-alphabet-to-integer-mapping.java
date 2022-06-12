@@ -14,7 +14,7 @@ class Solution {
         {
            int index = s.charAt(i)-'0';
            char curr = (char)(96+index);
-           sb.append(curr);
+           sb.insert(0,curr);
             i--; 
          }
         else
@@ -22,10 +22,10 @@ class Solution {
            String sub = s.substring(i-2,i);
            int index = Integer.parseInt(sub);
            char curr = (char)(96+index);
-           sb.append(curr);
+           sb.insert(0,curr);
            i=i-3;
         }
       }
-      return sb.reverse().toString();
+      return sb.toString();
     }
 }
