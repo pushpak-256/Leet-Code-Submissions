@@ -39,17 +39,15 @@ class Solution
 {
   public void insertionSort(int arr[], int n)
   { 
-      int firstIndexOfUnsorted = 1;  // assume 0 element is sorted part
-		
-		for (; firstIndexOfUnsorted < arr.length; firstIndexOfUnsorted++) {
-
-			int curr = arr[firstIndexOfUnsorted];
-			int j = firstIndexOfUnsorted;
-			for (; j > 0 && arr[j - 1] > curr; j--) { // if curr < curr-1 , then only swap,
-				arr[j] = arr[j- 1];
-			}
-			arr[j] = curr; // j is the Insertion position for curr element
-			
-		}
+     for(int i =1;i<arr.length;i++)
+     {
+         int curr = arr[i];
+         int j = i;
+         for(;j>0 && arr[j-1]>curr; j--)
+         {
+           arr[j]=arr[j-1];    
+         }
+         arr[j]=curr;
+     }
    }
 }
