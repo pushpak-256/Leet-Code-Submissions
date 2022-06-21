@@ -39,15 +39,14 @@ class Solution
 {
   public void insertionSort(int arr[], int n)
   { 
-     for(int i =1;i<arr.length;i++)
-     {
-         int curr = arr[i];
-         int j = i;
-         for(;j>0 && arr[j-1]>curr; j--)
-         {
-           arr[j]=arr[j-1];    
-         }
-         arr[j]=curr;
-     }
+		for (int i = 1; i < arr.length; i++) {
+          
+			int curr=arr[i];
+			int j=i;
+			for(;j>0 && arr[j-1]>curr;j--) {
+				arr[j]=arr[j-1];
+			}
+			arr[j]=curr;
+		}
    }
 }
