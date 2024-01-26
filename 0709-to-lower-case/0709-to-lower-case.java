@@ -7,7 +7,7 @@ class Solution {
         
         StringBuilder sb = new StringBuilder();
         for(char c : s.toCharArray()){
-            if((c-'a')<0 && Character.isAlphabetic(c)){
+            if((c-'a')<0 && c>=65 && c<=90){
                 c =(char)((int)( c + 32));
             }
             sb.append(c);
