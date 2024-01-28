@@ -8,19 +8,14 @@ class Solution {
             set.add(num);
         
         for(int num : nums){
-            int count = 1;
-            
-            int temp = num;
-            
-            while(set.remove(--temp))
-                count++;
-            
-            temp = num;
-            while(set.remove(++temp))
-                count++;
-            
-            max = Math.max(count,max);
-            
+           int temp = num;
+           int count = 0;
+           if(!set.contains(temp-1)){ // this num is start of sequence
+               while(set.contains(temp++))
+                   count++;
+               
+               max = Math.max(max,count);
+           }
         }
         
         return max;
