@@ -9,13 +9,16 @@ class Solution {
         
         for(int num : nums){
            int temp = num;
-           int count = 0;
-           if(!set.contains(temp-1)){ // this num is start of sequence
-               while(set.contains(temp++))
-                   count++;
-               
-               max = Math.max(max,count);
-           }
+           int count = 1;
+            
+            while(set.remove(--temp))// look left
+                count++;
+            
+            temp = num;
+            while(set.remove(++temp))//look right
+                  count++;
+            
+           max = Math.max(count,max);
         }
         
         return max;
