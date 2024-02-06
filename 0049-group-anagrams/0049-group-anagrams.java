@@ -1,40 +1,26 @@
 class Solution {
     
-    public boolean isAnagram(String a,String b){
-        
-        if((a==null || b==null) || a.length()!=b.length())
-            return false;
-        
-        int [] arr = new int[128];
-        for(int i=0;i<a.length();i++){
-            arr[a.charAt(i)]++;
-            arr[b.charAt(i)]--;
-        }
-        
-        for(int i =0; i<arr.length;i++){
-            if(arr[i]!=0)
-                return false;
-        }
-        
-        return true;
+    public String generateHash(String s){
+        char [] arr = new char [128];
+        for(char c : s.toCharArray())
+            arr[c-'a']++;
+        return String.valueOf(arr);
     }
     
     public List<List<String>> groupAnagrams(String[] arr) {
-       
-        List<List<String>> res = new LinkedList<>(); 
-        for(int i = 0; i<arr.length; i++){
-            List<String> temp = new LinkedList<>();
-            if(arr[i]==null) continue;
-            temp.add(arr[i]);
-            for(int j = i+1; j<arr.length; j++){
-                if(arr[j]==null) continue;
-                if(isAnagram(arr[i],arr[j])){
-                    temp.add(arr[j]);
-                    arr[j]=null;
-                }
+        // create a hash of each String, based on that way we will know if two string are anagram or not
+        Map<String,List<String>> map = new HashMap<>();
+        
+        for(String s : arr){
+            String hash = generateHash(s);
+            if(map.containsKey(hash)){
+                map.get(hash).add(s);
+            } else {
+                List<String> l = new LinkedList<>();
+                l.add(s);
+                map.put(hash,l);
             }
-            res.add(temp);
         }
-        return res;
+        return new ArrayList<>(map.values());
     }
 }
