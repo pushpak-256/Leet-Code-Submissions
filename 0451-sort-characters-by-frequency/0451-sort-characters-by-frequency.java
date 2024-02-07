@@ -5,22 +5,19 @@ class Solution {
         for(char c : s.toCharArray())
             map.put(c,map.getOrDefault(c,0)+1);
         
-        Comparator <Character> compare = (b,a)->{
-            int diff = map.get(a)-map.get(b);
-            if(diff==0)
-                return a-b;
-            return diff;
-        };
-        
+        Comparator <Character> compare = (b,a)->{return map.get(a)-map.get(b);};
         PriorityQueue<Character> pq = new PriorityQueue<>(compare);
         
-        for(char c : s.toCharArray())
-            pq.add(c);
+        pq.addAll(map.keySet());
         
         StringBuilder sb = new StringBuilder();
         
-        while(!pq.isEmpty())
-            sb.append(pq.poll());
+        while(!pq.isEmpty()){// here is catch
+            char x = pq.poll();
+            int limit = map.get(x);
+            while(limit-->0)
+             sb.append(x);
+        }
         
         return sb.toString();
         
